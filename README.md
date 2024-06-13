@@ -34,33 +34,33 @@ cd taskManager
 
 3. **Run the application:**
 
-1. **Start your local server** (e.g., XAMPP, MAMP).
-2. **Set up the database**:
-    - Open your database management tool (e.g., phpMyAdmin).
-    - Run the `db/schema.sql` script provided in the project directory to set up the database and tables.
-3. **Configure the database connection:**
-    - Update the `dbHandler.inc.php` file with your MySQL database credentials.
+    1. **Start your local server** (e.g., XAMPP, MAMP).
+    2. **Set up the database**:
+        - Open your database management tool (e.g., phpMyAdmin).
+        - Run the `db/schema.sql` script provided in the project directory to set up the database and tables.
+    3. **Configure the database connection:**
+        - Update the `dbHandler.inc.php` file with your MySQL database credentials.
 
-    ```php
-    <?php
-    $host = 'your_host';
-    $db = 'taskManager';
-    $user = 'your_username';
-    $pass = 'your_password';
+        ```php
+        <?php
+        $host = 'your_host';
+        $db = 'taskManager';
+        $user = 'your_username';
+        $pass = 'your_password';
 
-    $dsn = "mysql:host=$host;dbname=$db";
-    $options = [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES   => false,
-    ];
+        $dsn = "mysql:host=$host;dbname=$db";
+        $options = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false,
+        ];
 
-    try {
-        $pdo = new PDO($dsn, $user, $pass, $options);
-    } catch (\PDOException $e) {
-        throw new \PDOException($e->getMessage(), (int)$e->getCode());
-    }
-    ```
+        try {
+            $pdo = new PDO($dsn, $user, $pass, $options);
+        } catch (\PDOException $e) {
+            throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        }
+        ```
 4. **Navigate to the project directory:** 
     - Open your web browser and go to `http://localhost/taskManager` (or the appropriate path for your setup).
 
